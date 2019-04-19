@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ComWidget</class>
+ <widget class="QWidget" name="ComWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>492</width>
+    <height>434</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="5" column="0" colspan="2">
+    <widget class="QLabel" name="flowControlLabel">
+     <property name="text">
+      <string>Flow control:</string>
+     </property>
+     <property name="buddy">
+      <cstring>flowControlBox</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="13" column="1" rowspan="2">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>34</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="14" column="5">
+    <widget class="QPushButton" name="btnSend">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Send</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0" colspan="2">
+    <widget class="QPushButton" name="btnConnect">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>&amp;Connect</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="2">
+    <widget class="QComboBox" name="baudRateBox"/>
+   </item>
+   <item row="4" column="2">
+    <widget class="QComboBox" name="stopBitsBox"/>
+   </item>
+   <item row="14" column="4">
+    <widget class="QLineEdit" name="leSend">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="2">
+    <widget class="QComboBox" name="flowControlBox"/>
+   </item>
+   <item row="0" column="3" rowspan="14" colspan="3">
+    <widget class="QPlainTextEdit" name="plainTextEdit">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="2">
+    <widget class="QPushButton" name="btnDisconnect">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>&amp;Disconnect</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="2">
+    <widget class="QComboBox" name="parityBox"/>
+   </item>
+   <item row="2" column="2">
+    <widget class="QComboBox" name="dataBitsBox"/>
+   </item>
+   <item row="14" column="3">
+    <widget class="QPushButton" name="btnMonitorClear">
+     <property name="maximumSize">
+      <size>
+       <width>24</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>x</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2">
+    <widget class="QComboBox" name="serialPortInfoListBox"/>
+   </item>
+   <item row="7" column="0" colspan="3">
+    <widget class="QLabel" name="descriptionLabel">
+     <property name="text">
+      <string>Description:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="0" colspan="3">
+    <widget class="QLabel" name="manufacturerLabel">
+     <property name="text">
+      <string>Manufacturer:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="0" colspan="3">
+    <widget class="QLabel" name="serialNumberLabel">
+     <property name="text">
+      <string>Serial number:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="10" column="0" colspan="3">
+    <widget class="QLabel" name="locationLabel">
+     <property name="text">
+      <string>Location:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="11" column="0" colspan="3">
+    <widget class="QLabel" name="vidLabel">
+     <property name="text">
+      <string>Vendor ID:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="12" column="0" colspan="3">
+    <widget class="QLabel" name="pidLabel">
+     <property name="text">
+      <string>Product ID:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0" colspan="2">
+    <widget class="QLabel" name="stopBitsLabel">
+     <property name="text">
+      <string>Stop bits:</string>
+     </property>
+     <property name="buddy">
+      <cstring>stopBitsBox</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="2">
+    <widget class="QLabel" name="parityLabel">
+     <property name="text">
+      <string>Parity:</string>
+     </property>
+     <property name="buddy">
+      <cstring>parityBox</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="2">
+    <widget class="QLabel" name="dataBitsLabel">
+     <property name="text">
+      <string>Data bits:</string>
+     </property>
+     <property name="buddy">
+      <cstring>dataBitsBox</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="2">
+    <widget class="QLabel" name="baudRateLabel">
+     <property name="text">
+      <string>&amp;BaudRate:</string>
+     </property>
+     <property name="buddy">
+      <cstring>baudRateBox</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="2">
+    <widget class="QLabel" name="serialPortInfoLabel">
+     <property name="text">
+      <string>C&amp;OM:</string>
+     </property>
+     <property name="buddy">
+      <cstring>serialPortInfoListBox</cstring>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>serialPortInfoListBox</tabstop>
+  <tabstop>baudRateBox</tabstop>
+  <tabstop>dataBitsBox</tabstop>
+  <tabstop>parityBox</tabstop>
+  <tabstop>stopBitsBox</tabstop>
+  <tabstop>flowControlBox</tabstop>
+  <tabstop>btnConnect</tabstop>
+  <tabstop>btnDisconnect</tabstop>
+  <tabstop>leSend</tabstop>
+  <tabstop>btnSend</tabstop>
+  <tabstop>btnMonitorClear</tabstop>
+  <tabstop>plainTextEdit</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
