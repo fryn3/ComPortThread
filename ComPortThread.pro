@@ -29,17 +29,20 @@ SOURCES += \
         comwidget.cpp \
         main.cpp \
         mainwindow.cpp \
+        monitorwidget.cpp \
         tabwidget.cpp
 
 HEADERS += \
         comconnect.h \
         comwidget.h \
         mainwindow.h \
+        monitorwidget.h \
         tabwidget.h
 
 FORMS += \
         comwidget.ui \
-        mainwindow.ui
+        mainwindow.ui \
+        monitorwidget.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
