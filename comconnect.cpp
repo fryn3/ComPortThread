@@ -22,7 +22,7 @@ void ComPort::Connect::start() {
     connect(m_serial, &QSerialPort::readyRead,
             this, &ComPort::Connect::_rxData);
     emit started();
-    m_loop.exec();
+    m_loop.exec();  // QCoreApplication::exec();
 }
 
 void ComPort::Connect::stop() {

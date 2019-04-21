@@ -6,15 +6,90 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>492</width>
+    <width>664</width>
     <height>434</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="5" column="0" colspan="2">
+  <layout class="QGridLayout" name="gridLayout" columnstretch="0,0,100">
+   <item row="0" column="0">
+    <widget class="QLabel" name="serialPortInfoLabel">
+     <property name="text">
+      <string>C&amp;OM:</string>
+     </property>
+     <property name="buddy">
+      <cstring>serialPortInfoListBox</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QComboBox" name="serialPortInfoListBox"/>
+   </item>
+   <item row="0" column="2" rowspan="9">
+    <widget class="MonitorWidget" name="wMonitor" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>200</width>
+       <height>0</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="baudRateLabel">
+     <property name="text">
+      <string>&amp;BaudRate:</string>
+     </property>
+     <property name="buddy">
+      <cstring>baudRateBox</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QComboBox" name="baudRateBox"/>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="dataBitsLabel">
+     <property name="text">
+      <string>Data bits:</string>
+     </property>
+     <property name="buddy">
+      <cstring>dataBitsBox</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QComboBox" name="dataBitsBox"/>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="parityLabel">
+     <property name="text">
+      <string>Parity:</string>
+     </property>
+     <property name="buddy">
+      <cstring>parityBox</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QComboBox" name="parityBox"/>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="stopBitsLabel">
+     <property name="text">
+      <string>Stop bits:</string>
+     </property>
+     <property name="buddy">
+      <cstring>stopBitsBox</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QComboBox" name="stopBitsBox"/>
+   </item>
+   <item row="5" column="0">
     <widget class="QLabel" name="flowControlLabel">
      <property name="text">
       <string>Flow control:</string>
@@ -24,32 +99,10 @@
      </property>
     </widget>
    </item>
-   <item row="13" column="1" rowspan="2">
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>34</height>
-      </size>
-     </property>
-    </spacer>
+   <item row="5" column="1">
+    <widget class="QComboBox" name="flowControlBox"/>
    </item>
-   <item row="14" column="5">
-    <widget class="QPushButton" name="btnSend">
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Send</string>
-     </property>
-    </widget>
-   </item>
-   <item row="6" column="0" colspan="2">
+   <item row="6" column="0">
     <widget class="QPushButton" name="btnConnect">
      <property name="font">
       <font>
@@ -61,32 +114,7 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="2">
-    <widget class="QComboBox" name="baudRateBox"/>
-   </item>
-   <item row="4" column="2">
-    <widget class="QComboBox" name="stopBitsBox"/>
-   </item>
-   <item row="14" column="4">
-    <widget class="QLineEdit" name="leSend">
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="2">
-    <widget class="QComboBox" name="flowControlBox"/>
-   </item>
-   <item row="0" column="3" rowspan="14" colspan="3">
-    <widget class="QPlainTextEdit" name="plainTextEdit">
-     <property name="readOnly">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="6" column="2">
+   <item row="6" column="1">
     <widget class="QPushButton" name="btnDisconnect">
      <property name="enabled">
       <bool>false</bool>
@@ -101,127 +129,115 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="2">
-    <widget class="QComboBox" name="parityBox"/>
+   <item row="7" column="0" colspan="2">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="descriptionLabel">
+       <property name="text">
+        <string>Description:</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="manufacturerLabel">
+       <property name="text">
+        <string>Manufacturer:</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="serialNumberLabel">
+       <property name="text">
+        <string>Serial number:</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="locationLabel">
+       <property name="text">
+        <string>Location:</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="vidLabel">
+       <property name="text">
+        <string>Vendor ID:</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="pidLabel">
+       <property name="text">
+        <string>Product ID:</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
-   <item row="2" column="2">
-    <widget class="QComboBox" name="dataBitsBox"/>
-   </item>
-   <item row="14" column="3">
-    <widget class="QPushButton" name="btnMonitorClear">
-     <property name="maximumSize">
+   <item row="8" column="1">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
       <size>
-       <width>24</width>
-       <height>16777215</height>
+       <width>20</width>
+       <height>34</height>
       </size>
      </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>x</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="2">
-    <widget class="QComboBox" name="serialPortInfoListBox"/>
-   </item>
-   <item row="7" column="0" colspan="3">
-    <widget class="QLabel" name="descriptionLabel">
-     <property name="text">
-      <string>Description:</string>
-     </property>
-    </widget>
-   </item>
-   <item row="8" column="0" colspan="3">
-    <widget class="QLabel" name="manufacturerLabel">
-     <property name="text">
-      <string>Manufacturer:</string>
-     </property>
-    </widget>
-   </item>
-   <item row="9" column="0" colspan="3">
-    <widget class="QLabel" name="serialNumberLabel">
-     <property name="text">
-      <string>Serial number:</string>
-     </property>
-    </widget>
-   </item>
-   <item row="10" column="0" colspan="3">
-    <widget class="QLabel" name="locationLabel">
-     <property name="text">
-      <string>Location:</string>
-     </property>
-    </widget>
-   </item>
-   <item row="11" column="0" colspan="3">
-    <widget class="QLabel" name="vidLabel">
-     <property name="text">
-      <string>Vendor ID:</string>
-     </property>
-    </widget>
-   </item>
-   <item row="12" column="0" colspan="3">
-    <widget class="QLabel" name="pidLabel">
-     <property name="text">
-      <string>Product ID:</string>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="0" colspan="2">
-    <widget class="QLabel" name="stopBitsLabel">
-     <property name="text">
-      <string>Stop bits:</string>
-     </property>
-     <property name="buddy">
-      <cstring>stopBitsBox</cstring>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="0" colspan="2">
-    <widget class="QLabel" name="parityLabel">
-     <property name="text">
-      <string>Parity:</string>
-     </property>
-     <property name="buddy">
-      <cstring>parityBox</cstring>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0" colspan="2">
-    <widget class="QLabel" name="dataBitsLabel">
-     <property name="text">
-      <string>Data bits:</string>
-     </property>
-     <property name="buddy">
-      <cstring>dataBitsBox</cstring>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="0" colspan="2">
-    <widget class="QLabel" name="baudRateLabel">
-     <property name="text">
-      <string>&amp;BaudRate:</string>
-     </property>
-     <property name="buddy">
-      <cstring>baudRateBox</cstring>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="0" colspan="2">
-    <widget class="QLabel" name="serialPortInfoLabel">
-     <property name="text">
-      <string>C&amp;OM:</string>
-     </property>
-     <property name="buddy">
-      <cstring>serialPortInfoListBox</cstring>
-     </property>
-    </widget>
+    </spacer>
    </item>
   </layout>
+  <action name="actConnect">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>connect</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+C</string>
+   </property>
+  </action>
+  <action name="actDisconnect">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>disconnect</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+D</string>
+   </property>
+  </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MonitorWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">monitorwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <tabstops>
   <tabstop>serialPortInfoListBox</tabstop>
   <tabstop>baudRateBox</tabstop>
@@ -231,10 +247,6 @@
   <tabstop>flowControlBox</tabstop>
   <tabstop>btnConnect</tabstop>
   <tabstop>btnDisconnect</tabstop>
-  <tabstop>leSend</tabstop>
-  <tabstop>btnSend</tabstop>
-  <tabstop>btnMonitorClear</tabstop>
-  <tabstop>plainTextEdit</tabstop>
  </tabstops>
  <resources/>
  <connections/>

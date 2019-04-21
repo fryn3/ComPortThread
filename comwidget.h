@@ -39,7 +39,6 @@ public slots:
 private slots:
     void checkCustomBaudRatePolicy(int idx);
     void checkCustomDevicePathPolicy(int idx);
-    void rxMsg(QByteArray msg);
 private:
     void fillPortsParameters();
     ComPort::Settings getSettings();

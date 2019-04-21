@@ -4,6 +4,7 @@
 #include <QMessageBox>
 #include <QSerialPortInfo>
 #include <QDebug>
+#include <QLineEdit>
 
 static const char blankString[] = QT_TRANSLATE_NOOP("SettingsDialog", "N/A");
 
@@ -47,8 +48,8 @@ ComWidget::ComWidget(QWidget *parent) :
             this, &ComWidget::checkCustomBaudRatePolicy);
     connect(m_ui->serialPortInfoListBox, QOverload<int>::of(&QComboBox::currentIndexChanged),
             this, &ComWidget::checkCustomDevicePathPolicy);
-    connect(m_ui->btnConnect, &QPushButton::clicked,
-            this, &ComWidget::slOpenSerialPort);
+    connect(m_ui->actConnect, &QAction::toggled, this, &ComWidget::slOpenSerialPort);
+    connect(m_ui->btnConnect, &QPushButton::clicked, m_ui->actConnect, &QAction::toggle);
     connect(m_ui->btnDisconnect, &QPushButton::clicked,
             this, &ComWidget::slCloseSerialPort);
 
@@ -56,10 +57,7 @@ ComWidget::ComWidget(QWidget *parent) :
     fillPortsInfo();
 }
 
-ComWidget::~ComWidget()
-{
-    delete m_ui;
-}
+ComWidget::~ComWidget() { delete m_ui; }
 
 void ComWidget::showPortInfo(int idx)
 {
@@ -90,6 +88,8 @@ void ComWidget::showPortInfo(int idx)
 
 void ComWidget::slOpenSerialPort()
 {
+    m_ui->btnConnect->setEnabled(true);
+    m_ui->btnDisconnect->setEnabled(false);
     if (m_comPort) {
         disconnect(m_comPort, nullptr, nullptr, nullptr);
         delete m_comPort;
@@ -102,7 +102,9 @@ void ComWidget::slOpenSerialPort()
     m_thread = new QThread;
     m_comPort->moveToThread(m_thread);
     connect(m_thread, &QThread::started, m_comPort, &ComPort::Connect::start);
-    connect(m_comPort, &ComPort::Connect::rxMsg, this, &ComWidget::rxMsg);
+//    connect(m_ui->actDisconnect, &QAction::triggered, )
+    connect(m_comPort, &ComPort::Connect::rxMsg, m_ui->wMonitor, &MonitorWidget::rxData);
+    connect(m_ui->wMonitor, &MonitorWidget::txData, m_comPort, &ComPort::Connect::txMsg);
     connect(m_comPort, &ComPort::Connect::stoped,
             [=] (int i) { qDebug() << "finished:" << i; });
     connect(m_comPort, &ComPort::Connect::stoped,
@@ -113,6 +115,7 @@ void ComWidget::slOpenSerialPort()
 
 void ComWidget::slCloseSerialPort()
 {
+    m_comPort->stop();
 //    if (m_serial->isOpen())
 //        m_serial->close();
     m_ui->btnConnect->setEnabled(true);
@@ -136,11 +139,6 @@ void ComWidget::checkCustomDevicePathPolicy(int idx)
     m_ui->serialPortInfoListBox->setEditable(isCustomPath);
     if (isCustomPath)
         m_ui->serialPortInfoListBox->clearEditText();
-}
-
-void ComWidget::rxMsg(QByteArray msg)
-{
-    m_ui->plainTextEdit->appendPlainText(msg + "\n");
 }
 
 void ComWidget::fillPortsParameters()
